@@ -19,6 +19,8 @@ if !exists('g:osudake#enable')
   let g:osudake#enable = 1
 endif
 
+let s:osudake_dir = split(globpath(&runtimepath, 'autoload/stages'), '\n')
+
 " vertex of player
 let s:player = { 'x': 0, 'y': 0 }
 
@@ -117,7 +119,7 @@ function! osudake#update(c) abort
 endfunction
 
 function! osudake#main()
-  call osudake#init("stages/stage1.txt")
+  call osudake#init(s:osudake_dir . "/stage1.txt")
   let c = 0
   while c != char2nr('q')
     call osudake#update(c)
