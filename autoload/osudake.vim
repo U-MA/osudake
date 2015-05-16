@@ -119,7 +119,7 @@ function! osudake#update(c) abort
 endfunction
 
 function! osudake#main()
-  call osudake#init(s:osudake_dir . "/stage1.txt")
+  call osudake#init(s:osudake_dir[0] . "/stage1.txt")
   let c = 0
   while c != char2nr('q')
     call osudake#update(c)
